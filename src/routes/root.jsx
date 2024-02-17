@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router';
 
-import  Header   from '/src/components/Header.jsx';
+import  NavbarComponent   from '/src/components/header/Navbar.jsx';
 
 export const Root = () => {
+  console.log(localStorage.getItem('token'));
   return (
     <>
-      <Header />
+      <NavbarComponent isAuth = {localStorage.getItem('token') != null} />
       <Outlet />
     </>
   );
