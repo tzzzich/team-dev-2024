@@ -1,8 +1,13 @@
+import { Container } from 'react-bootstrap';
+import RequestCard from '/src/components/request-card/RequestCard.jsx';
+
 const Home = () => {
+
+
   return (
-    <div>
-      <h1>Привет</h1>
-    </div>
+
+        <RequestCard  />
+
   );
 }
 
