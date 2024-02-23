@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link, useLocation } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,16 +22,16 @@ function NavbarComponent({ isAuth }) {
           <Nav>
             {isAuth ? (
               <>
-                <Nav.Link href="/">Заявки</Nav.Link>
-                <Nav.Link href="/keys">Ключи</Nav.Link>
-                <Nav.Link href="/timetable">Расписание</Nav.Link>
+                <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active' : ''}>Заявки</Nav.Link>
+                <Nav.Link as={Link} to="/keys" className={location.pathname === '/keys' ? 'active' : ''}>Ключи</Nav.Link>
+                <Nav.Link as={Link} to="/timetable" className={location.pathname === '/timetable' ? 'active' : ''}>Расписание</Nav.Link>
               </>
             ) : null }
           </Nav>
 
           <Nav className="ms-auto">
-            <Nav.Link  href='/login'>
-                {isAuth ? 'Выйти' : 'Войти'}
+            <Nav.Link  href={isAuth ? '/profile' : '/login'}>
+                {isAuth ? 'Иванов Иван Иванович' : 'Войти'}
             </Nav.Link>            
           </Nav>
         </Navbar.Collapse>
