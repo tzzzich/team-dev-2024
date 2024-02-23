@@ -5,7 +5,7 @@ import PaginationNumber from "../components/PaginationNumber";
 
 
 const KeysPage = () => {
-  const keysDataList = Array.from({ length: 90 }, (_, index) => ({
+  const keysDataList = Array.from({ length: 15 }, (_, index) => ({
     numberKey: "9309706",
     fullName: "Иванов Иван Иванович",
     userRole: 'Student'
@@ -21,7 +21,7 @@ const KeysPage = () => {
             <KeyCard {...key}/>
         ))}
       </Row>
-      <PaginationNumber numbers={numbers} currentPage={3} maxPage={3}/>
+      <PaginationNumber numbers={numbers} currentPage={2} maxPage={3}/>
     </div>
   )
 }
