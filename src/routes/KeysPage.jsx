@@ -11,7 +11,7 @@ const KeysPage = () => {
     userRole: 'Student'
   }));
 
-  const numbers = [1, 2, 3, 4, 5]
+  const numbers = [1, 2, 3]
 
   return (
     <div style={{ width: '80%', margin: '0 auto'}}>
@@ -21,7 +21,7 @@ const KeysPage = () => {
             <KeyCard {...key}/>
         ))}
       </Row>
-      <PaginationNumber numbers={numbers}/>
+      <PaginationNumber numbers={numbers} currentPage={3} maxPage={3}/>
     </div>
   )
 }
