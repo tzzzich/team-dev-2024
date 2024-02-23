@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Root } from './routes/root';
 import { ROUTES } from './utils/constants/router';  
 import Home from './routes/home';
+import KeysPage from './routes/KeysPage';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.ROOT,
         element: <Home />,
+      },
+      {
+        path: ROUTES.KEYS,
+        element: <KeysPage />
       },
     ],
   },
