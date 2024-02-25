@@ -20,7 +20,7 @@ function NavbarComponent({ isAuth }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            {true ? (
+            {isAuth ? (
               <>
                 <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active' : ''}>Заявки</Nav.Link>
                 <Nav.Link as={Link} to="/keys" className={location.pathname === '/keys' ? 'active' : ''}>Ключи</Nav.Link>
