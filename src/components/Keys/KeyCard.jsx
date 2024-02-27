@@ -51,7 +51,7 @@ const KeyCard = ({numberKey, fullName, userRole}) => {
                             </Col>
                         </Row>
                         <Col className="d-grid">
-                            <Button variant="success" type="button" onClick={handleCloseLock}>История блокировок</Button>
+                            <Button variant="success" type="button" href={`/keys/${numberKey}`}>История блокировок</Button>
                         </Col>
                     </Form>
                 </Modal.Body>
