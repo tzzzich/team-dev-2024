@@ -1,5 +1,6 @@
 import { Container } from 'react-bootstrap';
 import RequestCard from '/src/components/request-card/RequestCard.jsx';
+import RequestFilter from '/src/components/RequestFilter.jsx';
 
 const Home = () => {
 
@@ -10,7 +11,8 @@ const Home = () => {
   }));
 
   return (
-    <div className="d-flex flex-row flex-wrap justify-content-space-evenly gap-4 " style={{ width: '80%', margin: '0 auto' }}>
+    <div className="d-flex flex-row flex-wrap justify-content-space-evenly gap-4 " style={{ width: '70%', margin: '0 auto' }}>
+      <RequestFilter />
       {requestDataList.map((index) => (
         <RequestCard key={index} />
       ))}
