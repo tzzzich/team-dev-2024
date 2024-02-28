@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import RoleTag from './RoleTag';
 
+import RequestInfoModal from '../RequestInfoModal.jsx';
+
 const RequestCard = () => {
 
   const requestData = {
@@ -13,7 +15,7 @@ const RequestCard = () => {
     endTime: '12:10 PM',
     role: 'Student'
   };
-  
+
   return (
     <div className="flex-grow-1" style={{position: 'relative'}}>
       <Card>
@@ -57,13 +59,7 @@ const RequestCard = () => {
               </Card.Text>
             </Col>
             <Col className="d-flex justify-content-end">
-                <Button variant="link">
-                  <img
-                  src="src/assets/box-arrow-up-right.svg"
-                  alt="Logo"
-                  style={{height: '1.25rem'}}
-                  />
-                </Button>
+                <RequestInfoModal />
             </Col>
           </Row>
         </Card.Body>

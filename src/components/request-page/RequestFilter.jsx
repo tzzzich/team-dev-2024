@@ -49,8 +49,8 @@ function RequestFilter() {
             <option >По времени бронирования (сначала позже)</option>
           </Form.Select>
         </Form.Group>
-        <Col className="d-flex align-items-center justify-content-center">
-        <Button type="submit">Применить</Button>
+        <Col className="d-flex align-items-center justify-content-center mt-3" >
+        <Button variant="primary" type="submit" className="w-100">Применить</Button>
         </Col>
       </Row>
     </Form>

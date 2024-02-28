@@ -7,7 +7,7 @@ const RoleTag =({role}) => {
     return (
         <Badge bg={backgroundColor} 
         style={{position:'absolute', top: '-5px', right: '-5px', 
-            height: '2rem'}}>
+        height: '2rem'}}>
             <h6>{roleName}</h6>
         </Badge>
     );
