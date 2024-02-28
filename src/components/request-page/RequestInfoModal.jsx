@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button} from 'react-bootstrap';
+import {IMAGES} from '../../utils/constants/images.js'
 
 function RequestInfoModal() {
   const [show, setShow] = useState(false);
@@ -12,7 +13,7 @@ function RequestInfoModal() {
 
         <Button variant="link" onClick={handleShow}>
             <img
-            src="src/assets/box-arrow-up-right.svg"
+            src={IMAGES.BOX_ARROW_UP_RIGHT}
             alt="Подробнее"
             style={{height: '1.25rem'}}
             />
@@ -37,9 +38,11 @@ function RequestInfoModal() {
             </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="danger">Отклонить</Button>
-                <Button variant="success" onClick={handleClose}>
-                Принять
+                <Button variant="danger" className="flex-fill">
+                    Отклонить
+                </Button>
+                <Button variant="success" onClick={handleClose} className="flex-fill">
+                    Принять
                 </Button>
             </Modal.Footer>
         </Modal>

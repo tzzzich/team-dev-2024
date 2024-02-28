@@ -1,8 +1,6 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Card, Row, Col} from 'react-bootstrap';
 import RoleTag from './RoleTag';
+import {IMAGES} from '../../../utils/constants/images.js';
 
 import RequestInfoModal from '../RequestInfoModal.jsx';
 
@@ -24,13 +22,11 @@ const RequestCard = () => {
           <Row className="mb-2">
             <Col>
               <Card.Text className="text-muted">
-                <strong>
                   <img
-                  src="src/assets/building.svg"
+                  src= {IMAGES.BUILDING}
                   alt="Аудитория:"
                   style={{height: '1.15rem', marginRight: '0.5rem'}}
                   />
-                </strong>
                 239 (2) Компьютерный класс ВИТШ
               </Card.Text>
               </Col>
@@ -38,24 +34,21 @@ const RequestCard = () => {
           <Row>
             <Col  xs ="auto" className="d-flex align-items-center">
               <Card.Text className="text-muted">
-                <strong>
                 <img
-                  src="src/assets/calendar.svg"
+                  src= {IMAGES.CALENDAR}
                   alt="Дата: "
-                  style={{height: '1.25rem'}}
+                  style={{height: '1.25rem', marginRight: '0.25rem'}}
                   />
-                </strong> {requestData.date}
+                   {requestData.date}
               </Card.Text>
             </Col>
             <Col  xs ="auto" className="d-flex align-items-center">
               <Card.Text className="text-muted">
-                <strong>
                 <img
-                  src="src/assets/clock.svg"
+                  src= {IMAGES.CLOCK}
                   alt="Время: "
                   style={{height: '1.15rem', marginRight: '0.25rem'}}
-                  />
-                  </strong> {requestData.startTime} - {requestData.endTime}
+                  /> {requestData.startTime} - {requestData.endTime}
               </Card.Text>
             </Col>
             <Col className="d-flex justify-content-end">
