@@ -11,7 +11,7 @@ function NavbarComponent({ isAuth }) {
       <Container>
         <Navbar.Brand href="/">
           <img
-            src="src/assets/tsu.svg"
+            src="/src/assets/tsu.svg"
             alt="Logo"
             style={{marginRight: '10px'}}
           />

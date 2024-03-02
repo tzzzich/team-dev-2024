@@ -15,4 +15,5 @@ const PaginationNumber = ({numbers, currentPage, maxPage}) => {
     )
 }
 
+
 export default PaginationNumber
