@@ -25,6 +25,7 @@ function NavbarComponent({ isAuth }) {
                 <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active' : ''}>Заявки</Nav.Link>
                 <Nav.Link as={Link} to="/keys" className={location.pathname === '/keys' ? 'active' : ''}>Ключи</Nav.Link>
                 <Nav.Link as={Link} to="/timetable" className={location.pathname === '/timetable' ? 'active' : ''}>Расписание</Nav.Link>
+                <Nav.Link as={Link} to="/verification" className={location.pathname === '/verification' ? 'active' : ''}>Верификация</Nav.Link>
               </>
             ) : null }
           </Nav>

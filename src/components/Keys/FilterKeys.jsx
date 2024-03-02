@@ -25,7 +25,7 @@ const FilterKeys = () => {
                                 </Form.Group>
                             </Col>
                             <Col md={6} lg={3} className="d-grid gap-2">
-                                <Button variant="success" onClick={handleShowCreateKey}>Создать ключ</Button>
+                                <Button variant="success" type="button" onClick={handleShowCreateKey}>Создать ключ</Button>
                                 <Button variant="primary" type="submit">Применить</Button>
                             </Col>
                         </Row>
