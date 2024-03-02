@@ -1,5 +1,6 @@
 export const ROUTES = {
     ROOT: '/',
-    KEYS: 'keys'
+    KEYS: 'keys',
+    LOCK: 'keys/:lockId'
   };
   
