@@ -1,6 +1,6 @@
 import {Card, Row, Col} from 'react-bootstrap';
-import RoleTag from './RoleTag';
-import {IMAGES} from '../../../utils/constants/images.js';
+import RoleTag from '../../RoleTag';
+import {IMAGES} from '/src/utils/constants/images.js';
 
 import RequestInfoModal from '../RequestInfoModal.jsx';
 
@@ -57,7 +57,7 @@ const RequestCard = () => {
           </Row>
         </Card.Body>
       </Card>
-      <RoleTag className='teacher'/>
+      <RoleTag role='Teacher'/>
     </div>
   )
 }

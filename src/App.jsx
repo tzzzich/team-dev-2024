@@ -6,6 +6,7 @@ import { ROUTES } from './utils/constants/router';
 import Home from './routes/home';
 import KeysPage from './routes/KeysPage';
 import BlockingHistory from './routes/BlockingHistory';
+import VerificationPage from './routes/VerificationPage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: ROUTES.LOCK,
         element: <BlockingHistory />
       },
+      {
+        path: ROUTES.VERIFICATION,
+        element: <VerificationPage />
+      }
     ],
   },
   
