@@ -15,7 +15,7 @@ const BlockingHistory = () => {
 
     return (
         <div style={{ width: '80%', margin: '0 auto'}}>
-            <h2 className="text-center mb-3 mt-4">Ключ {lockId}</h2>
+            <h2 className="text-center mt-4">Ключ {lockId}</h2>
             <Row className="mb-4">
                 {LockDataList.map((lock) => (
                     <LockCard {...lock}/>
