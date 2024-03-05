@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Root } from './routes/root';
 import { ROUTES } from './utils/constants/router';  
 import Home from './routes/home';
+import RequestPage from './routes/request-page';
 import KeysPage from './routes/KeysPage';
 import BlockingHistory from './routes/BlockingHistory';
 import VerificationPage from './routes/VerificationPage';
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.ROOT,
         element: <Home />,
+      },
+      {
+        path: ROUTES.REQUESTS,
+        element: <RequestPage />,
       },
       {
         path: ROUTES.KEYS,
