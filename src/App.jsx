@@ -6,6 +6,7 @@ import { ROUTES } from './utils/constants/router';
 import Home from './routes/home';
 import RequestPage from './routes/request-page';
 import KeysPage from './routes/KeysPage';
+import LoginPage from './routes/login';
 import BlockingHistory from './routes/BlockingHistory';
 import VerificationPage from './routes/VerificationPage';
 
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       {
         path: ROUTES.VERIFICATION,
         element: <VerificationPage />
-      }
+      },
+      {
+        path: ROUTES.LOGIN,
+        element: <LoginPage />,
+      },
     ],
   },
   
