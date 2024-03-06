@@ -7,8 +7,10 @@ import Home from './routes/home';
 import RequestPage from './routes/request-page';
 import KeysPage from './routes/KeysPage';
 import LoginPage from './routes/login';
+import RegistrationPage from './routes/registration';
 import BlockingHistory from './routes/BlockingHistory';
 import VerificationPage from './routes/VerificationPage';
+import ProfilePage from './routes/profile';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: ROUTES.LOGIN,
         element: <LoginPage />,
+      },
+      {
+        path: ROUTES.REGISTER,
+        element: <RegistrationPage />,
+      },
+      {
+        path: ROUTES.PROFILE,
+        element: <ProfilePage />,
       },
     ],
   },

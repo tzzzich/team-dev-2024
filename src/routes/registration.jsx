@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import {Button, Col, Form, InputGroup, Row, Card} from 'react-bootstrap';
+import InputMask from 'react-input-mask';
 
 import Password from "../components/form-validation/Password";
+import PhoneNumber from '../components/form-validation/PhoneNumber';
 
-function LoginPage() {
+function RegistrationPage () {
     
     const [validated, setValidated] = useState(false);
 
@@ -21,8 +23,22 @@ function LoginPage() {
     <div className="vh-100 d-flex flex-column justify-content-center align-items-center"> 
         <Card className='w-75' style={{maxWidth:'33em'}}>
             <Card.Body>
-                <Card.Title><h2>Вход</h2></Card.Title>
+                <Card.Title><h2>Регистрация</h2></Card.Title>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Row className="mb-3">
+                        <Form.Group controlId="fullName">
+                            <Form.Label>ФИО</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                placeholder="Иванов Иван Иванович" required />
+                            <Form.Control.Feedback type="invalid">
+                                Пожалуйста, введите имя.
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                    </Row>
+                    <Row className="mb-3">
+                        <PhoneNumber />
+                    </Row>
                     <Row className="mb-3">
                         <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
@@ -37,12 +53,9 @@ function LoginPage() {
                     <Row className="mb-3">
                         <Password />
                     </Row>
-                    <div className="d-grid gap-2">
+                    <div className="d-grid mt-2">
                         <Button type='submit' variant="primary">
-                            Войти
-                        </Button>
-                        <Button href="/register" variant="secondary">
-                            Регистрация
+                            Зарегистрироваться
                         </Button>
                     </div>
                 </Form>
@@ -52,4 +65,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegistrationPage;

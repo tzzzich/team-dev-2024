@@ -11,7 +11,7 @@ const Password = () => {
           setPasswordError('Пожалуйста, введите пароль.');
         } else if (passwordInput.validity.tooShort) {
           setPasswordError('Пароль должен быть длиной не менее 6 символов.');
-        } else if (!passwordInput.validity.patternMismatch) {
+        } else if (passwordInput.validity.patternMismatch) {
           setPasswordError('Пароль должен содержать букву.');
         } else {
           setPasswordError('');
@@ -19,7 +19,7 @@ const Password = () => {
       };
       
     return (
-        <Form.Group>
+        <Form.Group controlId="password">
             <Form.Label>Пароль</Form.Label>
             <Form.Control
                 type="password"

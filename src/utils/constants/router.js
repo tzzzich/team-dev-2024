@@ -5,5 +5,7 @@ export const ROUTES = {
     VERIFICATION: 'verification',
     REQUESTS: 'requests',
     LOGIN: 'login',
+    REGISTER: 'register',
+    PROFILE: 'profile',
   };
   
