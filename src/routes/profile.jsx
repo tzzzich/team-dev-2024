@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import {Button, Col, Form, InputGroup, Row, Card} from 'react-bootstrap';
-import InputMask from 'react-input-mask';
+import {Button, Form, Row, Card} from 'react-bootstrap';
 
 import PhoneNumber from '../components/form-validation/PhoneNumber';
 
@@ -30,7 +29,7 @@ function ProfilePage () {
                             <Form.Control 
                                 type="text"
                                 placeholder="Иванов Иван Иванович"
-                                value="Иванов Иван Иванович"
+                                defaultValue="Иванов Иван Иванович"
                                 required />
                             <Form.Control.Feedback type="invalid">
                                 Пожалуйста, введите имя.
@@ -46,7 +45,7 @@ function ProfilePage () {
                             <Form.Control 
                                 type="email"
                                 placeholder="user@example.com" 
-                                value="user@example.com" 
+                                defaultValue="user@example.com" 
                                 required />
                             <Form.Control.Feedback type="invalid">
                                 Не соответствует формату Email.

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import {Button, Col, Form, InputGroup, Row, Card} from 'react-bootstrap';
-import InputMask from 'react-input-mask';
+import {Button, Form, Row, Card} from 'react-bootstrap';
 
 import Password from "../components/form-validation/Password";
 import PhoneNumber from '../components/form-validation/PhoneNumber';
