@@ -1,7 +1,7 @@
 import Greetings from "./Greetings"
 import VerificationFailure from "./VerificationFailure"
 import VerificationWait from "./VerificationWait"
-import RequestPage from "./requestPage"
+import RequestPage from "./request-page"
 
 const Home = () => {
     //const user = {"verification": true}
