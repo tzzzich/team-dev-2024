@@ -8,7 +8,7 @@ const VerificationCard = ({id, fullName, verified, role}) => {
 
     const handleStatus = (otherStatus) => {
         setStatus(otherStatus)
-        axiosVerified(otherStatus, id)
+        axiosVerified(!otherStatus, id)
     }
 
     return (
