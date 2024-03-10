@@ -14,6 +14,7 @@ export const useGetApi = (defaultValue, url) => {
                 setData(response.data);
                 setLoading(false)
             } catch {
+                setLoading(false)
                 setData(defaultValue);
                 setError(true)
             }
