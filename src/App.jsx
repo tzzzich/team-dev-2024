@@ -8,7 +8,6 @@ import RequestPage from './routes/request-page';
 import KeysPage from './routes/KeysPage';
 import BlockingHistory from './routes/BlockingHistory';
 import VerificationPage from './routes/VerificationPage';
-import ProfilePage from './routes/profile';
 import TimetablePage from './routes/timetable';
 
 const router = createBrowserRouter([
