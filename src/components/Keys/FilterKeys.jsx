@@ -1,11 +1,19 @@
 import { useState } from "react"
 import { Button, Card, Col, Form, Modal, Row } from "react-bootstrap"
+import { axiosKeys } from "../../api/request/index"
+import { URL_API } from "../../utils/constants/urlApi"
 
 const FilterKeys = () => {
     const [showCreateKey, setShowCreateKey] = useState(false)
 
     const handleCloseCreateKey = () => setShowCreateKey(false)
     const handleShowCreateKey = () => setShowCreateKey(true)
+
+    const handleCreateKey = async(event) => {
+        event.preventDefault()
+        setShowCreateKey(false)
+        axiosKeys(event, URL_API.CREATE_KEY_URL)
+    }
 
     return (
         <>
@@ -36,11 +44,11 @@ const FilterKeys = () => {
             <Modal centered show={showCreateKey} onHide={handleCloseCreateKey}>
                 <Modal.Body>
                     <Modal.Title className="text-center mb-3">Создать ключ</Modal.Title>
-                    <Form>
-                        <Form.Control placeholder="Введите кабинет" type="text" className="mb-3"></Form.Control>
+                    <Form onSubmit={handleCreateKey}>
+                        <Form.Control placeholder="Введите кабинет" type="text" className="mb-3" name="auditory"></Form.Control>
                         <Row>
                             <Col className="d-grid">
-                                <Button variant="success" type="submit" onClick={handleCloseCreateKey}>Создать</Button>
+                                <Button variant="success" type="submit">Создать</Button>
                             </Col>
                             <Col className="d-grid">
                                 <Button variant="danger" type="button" onClick={handleCloseCreateKey}>Отменить</Button>
