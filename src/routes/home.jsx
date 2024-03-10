@@ -11,9 +11,9 @@ const Home = () => {
         <>
             {user === null ? (
                 <Greetings />
-            ) : user.verification === null ? (
+            ) : user.verified === null ? (
                 <VerificationWait />
-            ) : user.verification === true ? (
+            ) : user.verified === true ? (
                 <RequestPage />
             ) : (
                 <VerificationFailure />
