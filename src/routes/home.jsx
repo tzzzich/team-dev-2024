@@ -1,19 +1,19 @@
+import { useProfile } from "../api/hook/index.js"
 import Greetings from "./Greetings"
 import VerificationFailure from "./VerificationFailure"
 import VerificationWait from "./VerificationWait"
 import RequestPage from "./request-page"
 
 const Home = () => {
-    //const user = {"verification": true}
-    const user = undefined
+    const user = useProfile(null)
 
     return (
         <>
-            {user === undefined ? (
+            {user === null ? (
                 <Greetings />
-            ) : user.verification === null ? (
+            ) : user.verified === null ? (
                 <VerificationWait />
-            ) : user.verification === true ? (
+            ) : user.verified === true ? (
                 <RequestPage />
             ) : (
                 <VerificationFailure />
