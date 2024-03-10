@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Button, Card, Col, Modal, Form, Row} from "react-bootstrap"
 import RoleTag from "../RoleTag"
 
-const KeyCard = ({numberKey, fullName, userRole}) => {
+const KeyCard = ({id, auditory, currentOwner}) => {
     const [showLock, setShowLock] = useState(false)
 
     const handleCloseLock = () => setShowLock(false)
@@ -13,10 +13,10 @@ const KeyCard = ({numberKey, fullName, userRole}) => {
             <Col lg={4} md={6} className="mt-4">
                 <Card>
                     <Card.Body>
-                        <Card.Title>Ключ от кабинета {numberKey}</Card.Title>
+                        <Card.Title>Ключ от кабинета {auditory}</Card.Title>
                         <div className="d-flex justify-content-between flex-wrap mt-2 align-items-center">
                             <div>
-                                <Card.Text className="text-muted">{fullName}</Card.Text>
+                                <Card.Text className="text-muted">{currentOwner !== null ? currentOwner.fullName : null}</Card.Text>
                             </div>
                             <div>
                                 <Button variant="link" className="px-0" onClick={handleShowLock}>
@@ -32,13 +32,13 @@ const KeyCard = ({numberKey, fullName, userRole}) => {
                             </div>
                         </div>
                     </Card.Body>
-                    <RoleTag role={userRole}/>
+                    <RoleTag role={currentOwner !== null ? currentOwner.role : "Dean"}/>
                 </Card>
             </Col>
 
             <Modal centered show={showLock} onHide={handleCloseLock}>
                 <Modal.Body>
-                    <Modal.Title className="text-center mb-3">Заблокировать ключ {numberKey}</Modal.Title>
+                    <Modal.Title className="text-center mb-3">Заблокировать ключ {auditory}</Modal.Title>
                     <Form>
                         <Form.Control placeholder="Дата и время начала блокировки" type="datetime-local" className="mb-3"></Form.Control>
                         <Form.Control placeholder="Дата и время конца блокировки" type="datetime-local" className="mb-3"></Form.Control>
@@ -51,7 +51,7 @@ const KeyCard = ({numberKey, fullName, userRole}) => {
                             </Col>
                         </Row>
                         <Col className="d-grid">
-                            <Button variant="success" type="button" href={`/keys/${numberKey}`}>История блокировок</Button>
+                            <Button variant="success" type="button" href={`/keys/${id}`}>История блокировок</Button>
                         </Col>
                     </Form>
                 </Modal.Body>
