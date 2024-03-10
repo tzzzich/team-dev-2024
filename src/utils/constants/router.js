@@ -3,6 +3,10 @@ export const ROUTES = {
     KEYS: 'keys',
     LOCK: 'keys/:lockId',
     VERIFICATION: 'verification',
-    REQUESTS: 'requests'
+    TIMETABLE: 'timetable',
+    REQUESTS: 'requests',
+    LOGIN: 'login',
+    REGISTER: 'register',
+    PROFILE: 'profile',
   };
   
