@@ -12,9 +12,9 @@ const Home = () => {
         <>
             {data === null ? (
                 <Greetings />
-            ) : data.verified === null ? (
+            ) : data.verified === null && data.role === "Dean" ? (
                 <VerificationWait />
-            ) : data.verified === true ? (
+            ) : data.verified === true && data.role === "Dean" ? (
                 <RequestPage />
             ) : (
                 <VerificationFailure />
