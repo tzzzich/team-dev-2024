@@ -10,6 +10,7 @@ import LoginPage from './routes/login';
 import RegistrationPage from './routes/registration';
 import BlockingHistory from './routes/BlockingHistory';
 import VerificationPage from './routes/VerificationPage';
+import TimetablePage from './routes/timetable';
 import ProfilePage from './routes/profile';
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.REQUESTS,
         element: <RequestPage />,
+      },
+      {
+        path: ROUTES.TIMETABLE,
+        element: <TimetablePage />,
       },
       {
         path: ROUTES.KEYS,

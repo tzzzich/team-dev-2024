@@ -1,1 +1,2 @@
-export * from './useProfile'
+export * from './useGetApi'
+export * from './usePagination'

@@ -1,19 +1,20 @@
-import { useProfile } from "../api/hook/index.js"
+import { useGetApi} from "../api/hook/index.js"
+import { URL_API } from "../utils/constants/urlApi.js"
 import Greetings from "./Greetings"
 import VerificationFailure from "./VerificationFailure"
 import VerificationWait from "./VerificationWait"
 import RequestPage from "./request-page"
 
 const Home = () => {
-    const user = useProfile(null)
+    const [data] = useGetApi(null, URL_API.PROFILE_URL)
 
     return (
         <>
-            {user === null ? (
+            {data === null ? (
                 <Greetings />
-            ) : user.verified === null ? (
+            ) : data.verified === null ? (
                 <VerificationWait />
-            ) : user.verified === true ? (
+            ) : data.verified === true ? (
                 <RequestPage />
             ) : (
                 <VerificationFailure />
