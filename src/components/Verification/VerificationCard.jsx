@@ -1,12 +1,14 @@
 import { Button, Card, Col, Row } from "react-bootstrap"
 import RoleTag from "../RoleTag"
 import { useState } from "react"
+import { axiosVerified } from "../../api/request/index"
 
-const VerificationCard = ({fullName, verified, role}) => {
+const VerificationCard = ({id, fullName, verified, role}) => {
     const [userStatus, setStatus] = useState(verified)
 
     const handleStatus = (otherStatus) => {
         setStatus(otherStatus)
+        axiosVerified(otherStatus, id)
     }
 
     return (
