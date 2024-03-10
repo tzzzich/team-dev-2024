@@ -1,40 +1,51 @@
 import { useState } from "react"
 import { Button, Card, Col, Modal, Form, Row} from "react-bootstrap"
 import RoleTag from "../RoleTag"
+import { axiosDeleteKeys } from "../../api/request/index"
 
 const KeyCard = ({id, auditory, currentOwner}) => {
     const [showLock, setShowLock] = useState(false)
+    const [showKey, setShowKey] = useState(true)
 
     const handleCloseLock = () => setShowLock(false)
     const handleShowLock = () => setShowLock(true)
 
+    const handleDeleteKey = () => {
+        setShowKey(false)
+        axiosDeleteKeys(id)
+    }
+
     return (
         <>
-            <Col lg={4} md={6} className="mt-4">
-                <Card>
-                    <Card.Body>
-                        <Card.Title>Ключ от кабинета {auditory}</Card.Title>
-                        <div className="d-flex justify-content-between flex-wrap mt-2 align-items-center">
-                            <div>
-                                <Card.Text className="text-muted">{currentOwner !== null ? currentOwner.fullName : null}</Card.Text>
-                            </div>
-                            <div>
-                                <Button variant="link" className="px-0" onClick={handleShowLock}>
-                                    <img src="src/assets/lock.svg"
-                                    alt="lock"
-                                    style={{height: '1.5rem'}}></img>
-                                </Button>
-                                <Button variant="link" className="px-0">
-                                    <img src="src/assets/trash.svg"
-                                    alt="trash"
-                                    style={{height: '1.25rem'}}></img>
-                                </Button>
-                            </div>
-                        </div>
-                    </Card.Body>
-                    <RoleTag role={currentOwner !== null ? currentOwner.role : "Dean"}/>
-                </Card>
-            </Col>
+            {showKey ? (
+                <>
+                    <Col lg={4} md={6} className="mt-4">
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Ключ от кабинета {auditory}</Card.Title>
+                                <div className="d-flex justify-content-between flex-wrap mt-2 align-items-center">
+                                    <div>
+                                        <Card.Text className="text-muted">{currentOwner !== null ? currentOwner.fullName : null}</Card.Text>
+                                    </div>
+                                    <div>
+                                        <Button variant="link" className="px-0" onClick={handleShowLock}>
+                                            <img src="src/assets/lock.svg"
+                                            alt="lock"
+                                            style={{height: '1.5rem'}}></img>
+                                        </Button>
+                                        <Button variant="link" className="px-0" onClick={handleDeleteKey}>
+                                            <img src="src/assets/trash.svg"
+                                            alt="trash"
+                                            style={{height: '1.25rem'}}></img>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </Card.Body>
+                            <RoleTag role={currentOwner !== null ? currentOwner.role : "Dean"}/>
+                        </Card>
+                    </Col>
+                </>
+            ) : null}
 
             <Modal centered show={showLock} onHide={handleCloseLock}>
                 <Modal.Body>

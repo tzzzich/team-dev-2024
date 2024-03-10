@@ -3,5 +3,6 @@ export const URL_API = {
     PROFILE_URL: "/User/profile",
     VERIFIED_USERS: "/User",
     KEYS_URL: "/Key/detailed",
-    CREATE_KEY_URL: "/Key"
+    CREATE_KEY_URL: "/Key",
+    DELETE_KEY_URL: "/Key/"
 }
