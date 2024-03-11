@@ -6,7 +6,7 @@ export const axiosCreateLock = async(event, keiID) => {
     const dateTimeInterval = {}
 
     formData.forEach((value, key) => {
-        dateTimeInterval[key] = value
+        dateTimeInterval[key] = value + "Z"
     })
 
     const data = {
