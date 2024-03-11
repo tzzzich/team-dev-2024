@@ -6,7 +6,7 @@ export const Root = () => {
   console.log(localStorage.getItem('token'));
   return (
     <>
-      <NavbarComponent isAuth = {localStorage.getItem('token') == null} />
+      <NavbarComponent isAuth = {localStorage.getItem('token') != null} />
       <Outlet />
     </>
   );

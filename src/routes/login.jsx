@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import {Button, Col, Form, InputGroup, Row, Card} from 'react-bootstrap';
+import { axiosLogin } from '../api/request/axiosLogin';
 
 import Password from "../components/form-validation/Password";
 
 function LoginPage() {
     
     const [validated, setValidated] = useState(false);
+    const [error, setErrors] = useState('')
 
-    const handleSubmit = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        event.stopPropagation();
-      }
-  
-      setValidated(true);
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.stopPropagation();
+        } else {
+            setValidated(true);
+            const errorText = await axiosLogin(event);
+            setErrors(errorText);
+        }
     };
 
   return (
@@ -22,20 +26,22 @@ function LoginPage() {
         <Card className='w-75' style={{maxWidth:'33em'}}>
             <Card.Body>
                 <Card.Title><h2>Вход</h2></Card.Title>
+                <h6 className="text-danger mt-3">{error}</h6>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <Row className="mb-3">
                         <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control 
                                 type="email"
-                                placeholder="user@example.com" required />
+                                placeholder="user@example.com" required
+                                name="email" />
                             <Form.Control.Feedback type="invalid">
                                 Не соответствует формату Email.
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
-                        <Password />
+                        <Password name="password"/>
                     </Row>
                     <div className="d-grid gap-2">
                         <Button type='submit' variant="primary">
