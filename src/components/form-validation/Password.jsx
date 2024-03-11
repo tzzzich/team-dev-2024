@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Button, Col, Form, InputGroup, Row, Card} from 'react-bootstrap';
 
-const Password = () => {
+const Password = ({name}) => {
     const [passwordError, setPasswordError] = useState('Пожалуйста, введите пароль.');
 
     
@@ -28,6 +28,7 @@ const Password = () => {
                 pattern="^(?=.*[a-zA-Z]).*$"
                 onChange={validatePassword}
                 required
+                name={name}
             />
             <Form.Control.Feedback type="invalid">
             {passwordError}
