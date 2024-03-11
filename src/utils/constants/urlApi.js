@@ -4,5 +4,5 @@ export const URL_API = {
     VERIFIED_USERS: "/User",
     KEYS_URL: "/Key/detailed",
     CREATE_KEY_URL: "/Key",
-    DELETE_KEY_URL: "/Key/"
+    KEY_URL: "/Key/"
 }

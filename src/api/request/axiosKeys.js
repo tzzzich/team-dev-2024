@@ -8,6 +8,10 @@ export const axiosKeys = async(event, url) => {
         data[key] = value
     })
 
-    await api.post(url, data)
-    window.location.reload()
+    try {
+        await api.post(url, data)
+        window.location.reload()
+    } catch {
+        return ('Неверные данные')
+    }
 }

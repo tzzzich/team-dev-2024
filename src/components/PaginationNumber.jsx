@@ -1,11 +1,9 @@
 import Pagination from 'react-bootstrap/Pagination';
-import { usePagination } from '../api/hook/index.js';
+import { usePagination, useGetParams } from '../api/hook/index.js';
 
 const PaginationNumber = ({current, count, size}) => {
     const numbers = usePagination([], current, count)
-    const searchParams = new URLSearchParams(window.location.search)
-    searchParams.delete("pageNumber")
-    const params = searchParams.toString()
+    const [params, pageSize, setPageSize] = useGetParams(size)
     
     return (
         <div className="d-flex justify-content-between flex-wrap">
@@ -18,7 +16,7 @@ const PaginationNumber = ({current, count, size}) => {
                         ))}
                         <Pagination.Last href={`?pageNumber=${current + 1 < count ? current + 1 : count}&${params}`}/>
                     </Pagination>
-                    <input type='text' min={0} value={size} className='mb-4'></input>
+                    <input type='text' id='size' min={0} value={pageSize} className='mb-4' onChange={(e) => {setPageSize(e.target.value)}}></input>
                 </>
             ) : null}
         </div>

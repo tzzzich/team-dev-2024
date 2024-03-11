@@ -1,18 +1,33 @@
 import { useState } from "react"
 import { Button, Card, Col, Modal, Form, Row} from "react-bootstrap"
 import RoleTag from "../RoleTag"
-import { axiosDeleteKeys } from "../../api/request/index"
+import { axiosCreateLock, axiosDeleteKeys } from "../../api/request/index"
 
 const KeyCard = ({id, auditory, currentOwner}) => {
     const [showLock, setShowLock] = useState(false)
     const [showKey, setShowKey] = useState(true)
+    const [error, setErrors] = useState('')
 
     const handleCloseLock = () => setShowLock(false)
     const handleShowLock = () => setShowLock(true)
 
-    const handleDeleteKey = () => {
+    const handleDeleteKey = async() => {
         setShowKey(false)
-        axiosDeleteKeys(id)
+        await axiosDeleteKeys(id)
+    }
+
+    const handleLock = async(event) => {
+        event.preventDefault()
+
+        const form = event.currentTarget
+
+        if (form.checkValidity() === false) {
+            event.stopPropagation()
+            setValidated(true)
+        } else {
+            const errorText = await axiosCreateLock(event, id)
+            setErrors(errorText)
+        }
     }
 
     return (
@@ -50,12 +65,22 @@ const KeyCard = ({id, auditory, currentOwner}) => {
             <Modal centered show={showLock} onHide={handleCloseLock}>
                 <Modal.Body>
                     <Modal.Title className="text-center mb-3">Заблокировать ключ {auditory}</Modal.Title>
-                    <Form>
-                        <Form.Control placeholder="Дата и время начала блокировки" type="datetime-local" className="mb-3"></Form.Control>
-                        <Form.Control placeholder="Дата и время конца блокировки" type="datetime-local" className="mb-3"></Form.Control>
+                    <Form onSubmit={handleLock}>
+                        <Form.Control 
+                        placeholder="Дата и время начала блокировки"
+                        type="datetime-local" 
+                        className="mb-3" 
+                        name="intervalStart" 
+                        required></Form.Control>
+                        <Form.Control 
+                        placeholder="Дата и время конца блокировки" 
+                        type="datetime-local" 
+                        className="mb-3" 
+                        name="intervalEnd" 
+                        required></Form.Control>
                         <Row className="mb-3">
                             <Col className="d-grid">
-                                <Button variant="warning" type="submit" onClick={handleCloseLock}>Заблокировать</Button>
+                                <Button variant="warning" type="submit">Заблокировать</Button>
                             </Col>
                             <Col className="d-grid">
                                 <Button variant="danger" type="button" onClick={handleCloseLock}>Отменить</Button>
@@ -65,6 +90,7 @@ const KeyCard = ({id, auditory, currentOwner}) => {
                             <Button variant="success" type="button" href={`/keys/${id}`}>История блокировок</Button>
                         </Col>
                     </Form>
+                    <h6 className="text-danger mt-3">{error}</h6>
                 </Modal.Body>
             </Modal>
         </>

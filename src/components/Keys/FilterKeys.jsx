@@ -7,14 +7,46 @@ import { useAllParams } from "../../api/hook/index.js"
 const FilterKeys = () => {
     const [showCreateKey, setShowCreateKey] = useState(false)
     const [data, setData] = useAllParams({})
+    const [error, setErrors] = useState('')
 
     const handleCloseCreateKey = () => setShowCreateKey(false)
     const handleShowCreateKey = () => setShowCreateKey(true)
 
     const handleCreateKey = async(event) => {
         event.preventDefault()
-        setShowCreateKey(false)
-        axiosKeys(event, URL_API.CREATE_KEY_URL)
+        const errorText = await axiosKeys(event, URL_API.CREATE_KEY_URL)
+        setErrors(errorText)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const searchParams = new URLSearchParams(window.location.search);
+        const pageSize = document.getElementById('size').value
+
+        if (searchParams.has('auditory')) {
+            searchParams.set('auditory', data['auditory'] !== undefined ? data['auditory'] : "");
+        } else {
+            searchParams.append('auditory', data['auditory'] !== undefined ? data['auditory'] : "");
+        }
+
+        if (searchParams.has('ownerName')) {
+            searchParams.set('ownerName', data['ownerName'] !== undefined ? data['ownerName'] : "");
+        } else {
+            searchParams.append('ownerName', data['ownerName'] !== undefined ? data['ownerName'] : "");
+        }
+
+        if (searchParams.has("pageNumber")) {
+            searchParams.set('pageNumber', 1);
+        }
+
+        if (searchParams.has('pageSize')) {
+            searchParams.set('pageSize', pageSize !== undefined ? pageSize : 15);
+        } else {
+            searchParams.append('pageSize', pageSize !== undefined ? pageSize : 15);
+        }
+
+        window.location.href = window.location.pathname + '?' + searchParams.toString()
     }
 
     return (
@@ -22,7 +54,7 @@ const FilterKeys = () => {
             <Card className="mt-4">
                 <Card.Header>Фильтр Ключей</Card.Header>
                 <Card.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Row>
                             <Col md={6} lg={9}>
                                 <Form.Group className="mb-2">
@@ -63,6 +95,7 @@ const FilterKeys = () => {
                             </Col>
                         </Row>
                     </Form>
+                    <h6 className="text-danger mt-3">{error}</h6>
                 </Modal.Body>
             </Modal>
         </>
