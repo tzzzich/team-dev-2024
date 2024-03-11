@@ -7,14 +7,6 @@ import { URL_API } from "../utils/constants/urlApi";
 
 
 const KeysPage = () => {
-  /*const keysDataList = Array.from({ length: 15 }, (_, index) => ({
-    numberKey: "9309706",
-    fullName: "Иванов Иван Иванович",
-    userRole: 'Student'
-  }));
-
-  const numbers = [1, 2, 3]*/
-
   const [data, loading, error] = useGetApi(null, URL_API.KEYS_URL)
 
   return (
