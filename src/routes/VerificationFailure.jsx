@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap"
+import { axiosLogOut } from "../api/request/axiosLogOut"
 
 const VerificationFailure = () => {
     return (
@@ -6,7 +7,7 @@ const VerificationFailure = () => {
             <img src="/src/assets/Faile.jpg" className="img-fluid"></img>
             <h1 className="text-center">Верификация не пройдена</h1>
             <h3 className="text-center text-muted">Мы не смогли подтвердить что вы являетесь сотрудником деканата. Доступ закрыт</h3>
-            <Button type="button" variant="danger" className="mt-3" size="lg">Выйти</Button>
+            <Button type="button" variant="danger" className="mt-3" size="lg" onClick={axiosLogOut}>Выйти</Button>
         </div>
     )
 }

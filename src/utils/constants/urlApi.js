@@ -7,5 +7,6 @@ export const URL_API = {
     KEYS_URL: "/Key/detailed",
     CREATE_KEY_URL: "/Key",
     KEY_URL: "/Key/",
-    LOGIN_URL: "/User/login"
+    LOGIN_URL: "/User/login",
+    LOGOUT_URL: "/User/logout"
 }

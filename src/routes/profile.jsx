@@ -5,6 +5,7 @@ import { axiosPatchProfile } from '../api/request';
 
 import PhoneNumber from '../components/form-validation/PhoneNumber';
 import { URL_API } from '../utils/constants/urlApi';
+import { axiosLogOut } from '../api/request/axiosLogOut';
 
 function ProfilePage () {
     const [data, loading, error] = useGetApi(null, URL_API.PROFILE_URL);
@@ -67,9 +68,12 @@ function ProfilePage () {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Row>
-                    <div className="d-grid mt-2">
+                    <div className="d-grid mt-2 gap-2">
                         <Button type='submit' variant="primary">
                             Сохранить
+                        </Button>
+                        <Button type='button' variant="danger" onClick={axiosLogOut}>
+                            Выйти
                         </Button>
                     </div>
                 </Form>
