@@ -7,8 +7,8 @@ const Greetings = () => {
             <h1 className="text-center">Добро пожаловать</h1>
             <h3 className="text-center text-muted">Перед тем как продолжить войдите или зарегестрируйтесь</h3>
             <div className="d-flex flex-wrap gap-2 justify-content-center mt-3">
-                <Button type="button" variant="primary" size="lg">Вход</Button>
-                <Button type="button" variant="primary" size="lg">Регистрация</Button>
+                <Button type="button" variant="primary" size="lg" href="/login">Вход</Button>
+                <Button type="button" variant="primary" size="lg" href="/register">Регистрация</Button>
             </div>
         </div>
     )

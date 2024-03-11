@@ -1,6 +1,6 @@
 import { Card, Col } from "react-bootstrap"
 
-const LockCard = ({startBlocking, endBlocking}) => {
+const LockCard = ({intervalStart, intervalEnd}) => {
     const getDate = (date) => {
         return (date.substring(0, date.indexOf("T"))
         + " " + date.substring(date.indexOf("T") + 1, date.indexOf("T") + 6))
@@ -10,8 +10,8 @@ const LockCard = ({startBlocking, endBlocking}) => {
         <Col lg={4} md={6} className="mt-4">
             <Card bg="secondary" text="white">
                 <Card.Body>
-                    <Card.Text>Начало Блокировки: {getDate(startBlocking)}</Card.Text>
-                    <Card.Text>Конец Блокировки: {getDate(endBlocking)}</Card.Text>
+                    <Card.Text>Начало Блокировки: {getDate(intervalStart)}</Card.Text>
+                    <Card.Text>Конец Блокировки: {getDate(intervalEnd)}</Card.Text>
                 </Card.Body>
             </Card>
         </Col>
